@@ -30,10 +30,10 @@ public class KafkaProducer {
 
 		for(int i = 0; i < 10000; i++){
 
-			producer.send(new ProducerRecord<>("jsontest",String.valueOf(points.nextInt(10)) ));
-			//SendMsg_Json(producer);
+			//producer.send(new ProducerRecord<>("jsontest",String.valueOf(points.nextInt(10)) ));
+			SendMsg_Json(producer);
 //			SendMsg_KV(producer);
-//			SendMsg_KafkaEvent(producer);
+			//SendMsg_KafkaEvent(producer);
 			try {
 				sleep(1000);
 			} catch (InterruptedException e) {
@@ -108,12 +108,12 @@ public class KafkaProducer {
 		list.add("banana");
 		list.add("pineapple");
 		list.add("pomelo");
-		list.add("orange1");
+		list.add("orange");
 
 
 		for(int i = 0; i < 3000; i++){
 			String str = list.get(points.nextInt(8))+","+points.nextInt(5)+","+System.currentTimeMillis();
-			producer.send(new ProducerRecord<>("test1",String.valueOf(i), str));
+			producer.send(new ProducerRecord<>("jsontest",String.valueOf(i), str));
 
 			try {
 				sleep(1000);
